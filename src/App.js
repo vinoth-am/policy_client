@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { Layout } from "antd";
+import React from "react";
+import "./App.css";
+import { FOOTER } from "./utils/constants";
+import Router from "./layouts/Router";
+import SideBar from "./layouts/SideBar";
 
-function App() {
+const { Header, Content, Footer } = Layout;
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout style={{ minHeight: "100vh" }}>
+      <SideBar />
+      <Layout className="site-layout">
+        <Header className="site-layout-background" />
+        <Content className="content">
+          <Router />
+        </Content>
+        <Footer className="footer">{FOOTER}</Footer>
+      </Layout>
+    </Layout>
   );
 }
-
-export default App;
